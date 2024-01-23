@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2023 at 06:17 AM
+-- Generation Time: Jan 23, 2024 at 08:05 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -25,6 +25,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `akun`
+--
+
+CREATE TABLE `akun` (
+  `Username` varchar(30) NOT NULL,
+  `Password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `akun`
+--
+
+INSERT INTO `akun` (`Username`, `Password`) VALUES
+('123', '123'),
+('abc', 'abc'),
+('abc', 'abc');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `buku`
 --
 
@@ -42,14 +62,11 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`IDBuku`, `Kategori`, `NamaBuku`, `Harga`, `Stok`, `Penerbit`) VALUES
-('K1001', 'Keilmuan', 'Analisis & Perancangan Sistem Informasi', 50000, 60, 'Penerbit Informatika'),
-('K1002', 'Keilmuan', 'Artificial Intelligence ', 45000, 60, 'Penerbit Informatika'),
-('K2003', 'Keilmuan', 'Auotcad 3 Dimensi', 40000, 25, 'Penerbit Informatika'),
-('B1001', 'Bisnis', 'Bisnis Online', 75000, 9, 'Penerbit Informatika'),
-('K3004', 'Keilmuan', 'Cloud Computing Technology', 85000, 15, 'Penerbit Informatika'),
-('B1002', 'Bisnis', 'Etika Bisnis dan Tanggung Jawab Sosial', 67500, 20, 'Penerbit Informatika'),
-('N1001', 'Novel', 'Cahaya Di Penjuru Hati', 68000, 10, 'Andi Offset'),
-('N1002', 'Novel', 'Aku Ingin Cerita', 48000, 12, 'Danendra');
+('Senja', 'Senja', 'entah', 120000, 12, '12'),
+('13', '13', '13', 1313, 13, '13'),
+('3', '3', '3', 3, 3, '3'),
+('123', '123', '1234', 123, 123, '123'),
+('133', '133', '1322', 133, 133, '133');
 
 -- --------------------------------------------------------
 
@@ -72,7 +89,8 @@ CREATE TABLE `penerbit` (
 INSERT INTO `penerbit` (`IDPenerbit`, `NamaPenerbit`, `Alamat`, `Kota`, `Telepon`) VALUES
 ('SP01', 'Penerbit Informatika', 'Jl. Buah Batu No. 121', 'Bandung', '0813-2220-1946'),
 ('SP02', 'Andi Offset', 'Jl, Suryalaya IX No. 3', 'Bandung', '0878-3903-0688'),
-('SP03', 'Danendra', 'Jl. Moch. Toha 44', 'Bandung', '022-5201215');
+('SP03', 'Danendra', 'Jl. Moch. Toha 44', 'Bandung', '022-5201215'),
+('', '123456', '12345', '12345', '12345');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

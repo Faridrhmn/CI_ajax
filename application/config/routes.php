@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Perpus/login';
+$route['default_controller'] = 'Perpus/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -68,6 +68,6 @@ $route['api/perpus/updatePenerbit/(:any)'] = 'Awal/update_penerbit/$1';
 $route['api/akun/tambahAkun'] = 'Akun/tambah_akun';
 $route['api/akun/masukAkun'] = 'Akun/masuk_akun';
 
-$route['perpus'] = 'Perpus/index';
+$route['perpus'] = 'Perpus/halaman';
 $route['login'] = 'Perpus/login';
 $route['register'] = 'Perpus/register';

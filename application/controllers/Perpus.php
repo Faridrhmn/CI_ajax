@@ -5,6 +5,11 @@ class Perpus extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('utama');
+	}
+
+	public function halaman()
+	{
 		$this->load->view('halaman_awal');
 	}
 

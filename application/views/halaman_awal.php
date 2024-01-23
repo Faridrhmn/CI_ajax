@@ -4,266 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid mx-5">
-            <p class="navbar-brand mb-0">Halaman Admin</p>
-            <!-- <a class="nav-link" href="#" id="ambil">Ambil Data</a>
-            <a class="nav-link" href="#" id="test">Ambil Data</a> -->
-            <span class="navbar-text text-end">
-                <a class="nav-link" href="#" id="keluar">Log out</a>
-            </span>
-        </div>
-    </nav>
-</header>
-<div class="container-fluid">
-    <div class="row mt-4 mx-4">
-        <div class="col">
-            <div class="col-10">
-                <table class="table col-9">
-                    <thead>
-                        <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Buku</th>
-                        </tr>
-                    </thead>
-                    <tbody id="listBuku">
-                    </tbody>
-                </table>
-                <a href="#" class="btn btn-primary float-end" id="button-tambah-buku">Tambah Buku</a>
-            </div>
-        </div>
-        <div class="col">
-            <div class="col-10">
-                <table class="table col-9">
-                    <thead>
-                        <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Penerbit</th>
-                        </tr>
-                    </thead>
-                    <tbody id="listPenerbit">
-                    </tbody>
-                </table>
-                <a href="#" class="btn btn-primary float-end" id="button-tambah-penerbit">Tambah Penerbit</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <!-- Modal View BUKU -->
-    <div class="modal fade" id="modalTambahBuku" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5">Tambah Buku</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div id="isi">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid mx-5">
+                    <p class="navbar-brand mb-0">Halaman Admin</p>
+                    <span class="navbar-text text-end">
+                    <button id="logout" class="badge text-bg-warning p-2 mx-2 rounded-pill float-end" style="text-decoration: none;">Keluar</button>
+                    </span>
                 </div>
-                <div class="modal-body">
-                    <form id="formTambahBuku">
-                        <input type="hidden" id="edit-id" name="id">
-                        <div class="form-group mb-2">
-                            <label for="IDBuku">ID Buku</label>
-                            <input type="text" class="form-control" id="IDBuku" name="IDBuku">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Kategori">Kategori</label>
-                            <input type="text" class="form-control" id="Kategori" name="Kategori">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="NamaBuku">Nama Buku</label>
-                            <input type="text" class="form-control" id="NamaBuku" name="NamaBuku">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Harga">Harga</label>
-                            <input type="number" class="form-control" id="Harga" name="Harga">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Stok">Stok</label>
-                            <input type="number" class="form-control" id="Stok" name="Stok">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Penerbit">Penerbit</label>
-                            <input type="text" class="form-control" id="Penerbit" name="Penerbit">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" id="tambahBuku">Tambahkan!</button>
-                        </div>
-                    </form>
+            </nav>
+        </header>
+        <div class="container-fluid">
+            <div class="row mt-4 mx-4">
+                <div class="col">
+                    <div class="col-10">
+                        <table class="table col-9">
+                            <thead>
+                                <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Buku</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listBuku">
+                            </tbody>
+                        </table>
+                        <a href="#" class="btn btn-primary float-end" id="button-tambah-buku">Tambah Buku</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-10">
+                        <table class="table col-9">
+                            <thead>
+                                <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Penerbit</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listPenerbit">
+                            </tbody>
+                        </table>
+                        <a href="#" class="btn btn-primary float-end" id="button-tambah-penerbit">Tambah Penerbit</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="modal fade" id="modalUpdateBuku" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5">Update Buku</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        
+            <!-- Modal View BUKU -->
+            <div class="modal fade" id="modalTambahBuku" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Tambah Buku</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formTambahBuku">
+                                <input type="hidden" id="edit-id" name="id">
+                                <div class="form-group mb-2">
+                                    <label for="IDBuku">ID Buku</label>
+                                    <input type="text" class="form-control" id="IDBuku" name="IDBuku">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Kategori">Kategori</label>
+                                    <input type="text" class="form-control" id="Kategori" name="Kategori">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="NamaBuku">Nama Buku</label>
+                                    <input type="text" class="form-control" id="NamaBuku" name="NamaBuku">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Harga">Harga</label>
+                                    <input type="number" class="form-control" id="Harga" name="Harga">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Stok">Stok</label>
+                                    <input type="number" class="form-control" id="Stok" name="Stok">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Penerbit">Penerbit</label>
+                                    <input type="text" class="form-control" id="Penerbit" name="Penerbit">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" id="tambahBuku">Tambahkan!</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form id="formUpdateBuku">
-                        <input type="hidden" id="edit-id" name="id">
-                        <div class="form-group mb-2">
-                            <label for="edit-IDBuku">ID Buku</label>
-                            <input type="text" class="form-control" id="edit-IDBuku" name="IDBuku" readonly>
+            </div>
+        
+            <div class="modal fade" id="modalUpdateBuku" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Update Buku</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="form-group mb-2">
-                            <label for="edit-Kategori">Kategori</label>
-                            <input type="text" class="form-control" id="edit-Kategori" name="Kategori">
+                        <div class="modal-body">
+                            <form id="formUpdateBuku">
+                                <input type="hidden" id="edit-id" name="id">
+                                <div class="form-group mb-2">
+                                    <label for="edit-IDBuku">ID Buku</label>
+                                    <input type="text" class="form-control" id="edit-IDBuku" name="IDBuku" readonly>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="edit-Kategori">Kategori</label>
+                                    <input type="text" class="form-control" id="edit-Kategori" name="Kategori">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="edit-NamaBuku">Nama Buku</label>
+                                    <input type="text" class="form-control" id="edit-NamaBuku" name="NamaBuku">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="edit-Harga">Harga</label>
+                                    <input type="number" class="form-control" id="edit-Harga" name="Harga">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="edit-Stok">Stok</label>
+                                    <input type="number" class="form-control" id="edit-Stok" name="Stok">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="edit-Penerbit">Penerbit</label>
+                                    <input type="text" class="form-control" id="edit-Penerbit" name="Penerbit">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" id="updateBukuNya">Simpan!</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group mb-2">
-                            <label for="edit-NamaBuku">Nama Buku</label>
-                            <input type="text" class="form-control" id="edit-NamaBuku" name="NamaBuku">
+                    </div>
+                </div>
+            </div>
+        
+        
+            <!-- Modal View PENERBIT -->
+            <div class="modal fade" id="modalTambahPenerbit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Tambah Penerbit</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="form-group mb-2">
-                            <label for="edit-Harga">Harga</label>
-                            <input type="number" class="form-control" id="edit-Harga" name="Harga">
+                        <div class="modal-body">
+                            <form id="formTambahPenerbit">
+                                <input type="hidden" id="edit-id" name="id">
+                                <div class="form-group mb-2">
+                                    <label for="IDPenerbit">ID Penerbit</label>
+                                    <input type="text" class="form-control" id="IDPenerbit" name="IDPenerbit">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="NamaPenerbit">Nama Penerbit</label>
+                                    <input type="text" class="form-control" id="NamaPenerbit" name="NamaPenerbit">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Alamat">Alamat</label>
+                                    <input type="text" class="form-control" id="Alamat" name="Alamat">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Kota">Kota</label>
+                                    <input type="text" class="form-control" id="Kota" name="Kota">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Telepon">Telepon</label>
+                                    <input type="text" class="form-control" id="Telepon" name="Telepon">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" id="tambahPenerbit">Tambahkan!</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group mb-2">
-                            <label for="edit-Stok">Stok</label>
-                            <input type="number" class="form-control" id="edit-Stok" name="Stok">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="modalUpdatePenerbit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Tambah Penerbit</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="form-group mb-2">
-                            <label for="edit-Penerbit">Penerbit</label>
-                            <input type="text" class="form-control" id="edit-Penerbit" name="Penerbit">
+                        <div class="modal-body">
+                            <form id="formUpdatePenerbit">
+                                <input type="hidden" id="edit-id" name="id">
+                                <div class="form-group mb-2">
+                                    <label for="edit-IDPenerbit">ID Penerbit</label>
+                                    <input type="text" class="form-control" id="edit-IDPenerbit" name="edit-IDPenerbit" readonly>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="edit-NamaPenerbit">Nama Penerbit</label>
+                                    <input type="text" class="form-control" id="edit-NamaPenerbit" name="edit-NamaPenerbit">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Alamat">Alamat</label>
+                                    <input type="text" class="form-control" id="edit-Alamat" name="edit-Alamat">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Kota">Kota</label>
+                                    <input type="text" class="form-control" id="edit-Kota" name="edit-Kota">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Telepon">Telepon</label>
+                                    <input type="text" class="form-control" id="edit-Telepon" name="edit-Telepon">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" id="updatePenerbit">Simpan!</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" id="updateBuku">Simpan!</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-    <!-- Modal View PENERBIT -->
-    <div class="modal fade" id="modalTambahPenerbit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5">Tambah Penerbit</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formTambahPenerbit">
-                        <input type="hidden" id="edit-id" name="id">
-                        <div class="form-group mb-2">
-                            <label for="IDPenerbit">ID Penerbit</label>
-                            <input type="text" class="form-control" id="IDPenerbit" name="IDPenerbit">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="NamaPenerbit">Nama Penerbit</label>
-                            <input type="text" class="form-control" id="NamaPenerbit" name="NamaPenerbit">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Alamat">Alamat</label>
-                            <input type="text" class="form-control" id="Alamat" name="Alamat">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Kota">Kota</label>
-                            <input type="text" class="form-control" id="Kota" name="Kota">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Telepon">Telepon</label>
-                            <input type="text" class="form-control" id="Telepon" name="Telepon">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" id="tambahPenerbit">Tambahkan!</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalUpdatePenerbit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5">Tambah Penerbit</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formUpdatePenerbit">
-                        <input type="hidden" id="edit-id" name="id">
-                        <div class="form-group mb-2">
-                            <label for="edit-IDPenerbit">ID Penerbit</label>
-                            <input type="text" class="form-control" id="edit-IDPenerbit" name="edit-IDPenerbit" readonly>
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="edit-NamaPenerbit">Nama Penerbit</label>
-                            <input type="text" class="form-control" id="edit-NamaPenerbit" name="edit-NamaPenerbit">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Alamat">Alamat</label>
-                            <input type="text" class="form-control" id="edit-Alamat" name="edit-Alamat">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Kota">Kota</label>
-                            <input type="text" class="form-control" id="edit-Kota" name="edit-Kota">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="Telepon">Telepon</label>
-                            <input type="text" class="form-control" id="edit-Telepon" name="edit-Telepon">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" id="updatePenerbit">Simpan!</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 <script>
     $(document).ready(function() {
         dataSemua();
-        // $(document).one('click', '#ambil', function(){
-        //     dataSemua();
-        // });
-    });
-    // $.isReady = true;
-
-
-    // $(window).on("load", function(){
-    //     resetAll();
-    //     console.log("error");
-    // });
-
-    // document.addEventListener("DOMContentLoaded", function(){
-    //     resetAll();
-    //     console.log("berhasilkah?");
-    // });
-
-    // document.addEventListener("DOMContentLoaded", () => {
-    //     console.log("Hello World!");
-    //     resetAll();
-    // });
-
-    function resetValue() {
-    $('#listBuku').empty();
-    $('#listPenerbit').empty();
-    }
-
-    // AMBIL DATA
-    $(document).one('click', '#ambil', function(){
-        dataSemua();
-    });
-
-    $(document).on('click', '#test', function(){
-        resetValue();
     });
 
     // TAMBAH BUKU
@@ -271,66 +230,29 @@
         $('#modalTambahBuku').modal('show');
     });
 
-    $(document).on('submit', '#formTambahBuku', function(e){
-        e.preventDefault(); 
+    document.querySelector('#formTambahBuku').addEventListener('submit', function(e) {
+        e.preventDefault();
         tambahBuku();
         $('#modalTambahBuku').modal('hide');
     });
-    
-    // EDIT BUKU
-    $(document).on('click', '#editBuku', function(){
-        let id = $(this).data('id');
-        spesifikBuku(id);
-        $('#modalUpdateBuku').modal('show');
-    });
-
-    $(document).on('submit', '#formUpdateBuku', function(e){
-        e.preventDefault();          
-        updateBuku();
-        $('#modalUpdateBuku').modal('hide');
-    });
-
-    // HAPUS BUKU
-    $(document).on('click', '#hapusBuku', function(){
-        let id = $(this).data('id');
-        hapusBuku(id);
-    });
 
     // TAMBAH PENERBIT
-    $(document).on('click', '#button-tambah-penerbit', function(){
+    document.querySelector('#button-tambah-penerbit').addEventListener('click', function(e) {
+        e.preventDefault();          
         $('#modalTambahPenerbit').modal('show');
     });
 
-    $(document).on('submit', '#formTambahPenerbit', function(e){
-        e.preventDefault(); 
+    document.querySelector('#formTambahPenerbit').addEventListener('submit', function(e) {
+        e.preventDefault();          
         tambahPenerbit();
         $('#modalTambahPenerbit').modal('hide');
     });
-
-    // HAPUS PENERBIT
-    $(document).on('click', '#hapusPenerbit', function(){
-        let id = $(this).data('id');
-        hapusPenerbit(id);
-    });
-
-    // EDIT PENERBIT
-    $(document).on('click', '#editPenerbit', function(){
-        let id = $(this).data('id');
-        spesifikPenerbit(id);
-        $('#modalUpdatePenerbit').modal('show');
-    });
-
-    $(document).on('submit', '#formUpdatePenerbit', function(e){
-        e.preventDefault();          
-        updatePenerbit();
-        $('#modalUpdatePenerbit').modal('hide');
-    });
-
+    
     // PINDAH HALAMAN
-    $(document).on('click', '#keluar', function(){
-        $('#listBuku').html("");
-        $('#listPenerbit').html("");
-        $('body').load('index.php/login');
+    document.querySelector('#logout').addEventListener('click', function(e) {
+        e.preventDefault();          
+        $('#isi').empty().load('index.php/login');
+        console.log("Keluar!");
     });
 
     // FUNCTION TAMBAHAN
@@ -346,6 +268,7 @@
             url: 'http://localhost/CI_ajax/index.php/api/perpus',
             method: 'GET',
             dataType: 'json',
+            cache: false,
             success: function(data) {
                 let buku = data.semua.buku;
                 // console.log(buku);
@@ -384,6 +307,44 @@
             }
         });
     }
+
+    $('#listBuku').on('click', '#hapusBuku', function() {
+        var bukuId = $(this).data('id');
+        hapusBuku(bukuId);
+        console.log('Delete button clicked for ID: ' + bukuId);
+    });
+
+    $('#listBuku').on('click', '#editBuku', function() {
+        var bukuId = $(this).data('id');
+        spesifikBuku(bukuId);
+        $('#modalUpdateBuku').modal('show');
+        console.log('update button clicked for ID: ' + bukuId);
+    });
+
+    document.querySelector('#formUpdateBuku').addEventListener('submit', function(e) {
+        e.preventDefault();          
+        updateBuku();
+        $('#modalUpdateBuku').modal('hide');
+    });
+
+    $('#listPenerbit').on('click', '#hapusPenerbit', function() {
+        var penerbitId = $(this).data('id');
+        hapusPenerbit(penerbitId);
+        console.log('Delete button clicked for ID: ' + penerbitId);
+    });
+
+    $('#listPenerbit').on('click', '#editPenerbit', function() {
+        var penerbitId = $(this).data('id');
+        spesifikPenerbit(penerbitId);
+        $('#modalUpdatePenerbit').modal('show');
+        console.log('update button clicked for ID: ' + penerbitId);
+    });
+
+    document.querySelector('#formUpdatePenerbit').addEventListener('submit', function(e) {
+        e.preventDefault();          
+        updatePenerbit();
+        $('#modalUpdatePenerbit').modal('hide');
+    });
 
     // FUNCTION TAMBAH BUKU
     function tambahBuku(){
@@ -474,7 +435,6 @@
                 resetAll();
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                // resetAll();
                 console.log(textStatus, errorThrown);
                 console.log("ini error");
             }  
